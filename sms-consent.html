@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SMS Consent — ANX Home Healthcare and ANX Hospice Care</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --slate-50: #f8fafc; --slate-100: #f1f5f9; --slate-200: #e2e8f0;
+      --slate-400: #94a3b8; --slate-500: #64748b; --slate-600: #475569;
+      --slate-700: #334155; --slate-800: #1e293b; --slate-900: #0f172a;
+      --teal-50: #f0fdfa; --teal-100: #ccfbf1; --teal-500: #14b8a6;
+      --teal-600: #0d9488; --teal-700: #0f766e;
+      --white: #ffffff;
+    }
+    body { font-family: 'DM Sans', system-ui, sans-serif; color: var(--slate-700); background: var(--white); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+    nav { display: flex; justify-content: space-between; align-items: center; max-width: 1120px; margin: 0 auto; padding: 1.5rem 2rem; }
+    .logo { font-family: 'DM Serif Display', serif; font-size: 1.25rem; color: var(--slate-900); text-decoration: none; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { text-decoration: none; color: var(--slate-600); font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--teal-600); }
+    .page-header { max-width: 1120px; margin: 0 auto; padding: 3rem 2rem 1rem; border-bottom: 1px solid var(--slate-200); }
+    .page-header h1 { font-family: 'DM Serif Display', serif; font-size: 2.4rem; color: var(--slate-900); }
+    .page-header p { color: var(--slate-400); font-size: 0.9rem; margin-top: 0.5rem; }
+    .content { max-width: 800px; margin: 0 auto; padding: 2rem 2rem 4rem; }
+    .content h2 { font-family: 'DM Serif Display', serif; font-size: 1.4rem; color: var(--slate-900); margin-top: 2.5rem; margin-bottom: 0.75rem; }
+    .content p, .content li { font-size: 0.95rem; color: var(--slate-600); margin-bottom: 0.75rem; }
+    .content ul { padding-left: 1.5rem; margin-bottom: 1rem; }
+    .content li { margin-bottom: 0.4rem; }
+
+    .consent-box {
+      background: var(--teal-50); border: 2px solid var(--teal-500);
+      border-radius: 1rem; padding: 2rem; margin: 2rem 0;
+    }
+    .consent-box h3 { font-size: 1.1rem; font-weight: 700; color: var(--teal-700); margin-bottom: 1rem; }
+    .consent-box p { color: var(--slate-600); font-size: 0.9rem; margin-bottom: 0.5rem; }
+
+    .mockup-form {
+      background: var(--slate-50); border: 1px solid var(--slate-200);
+      border-radius: 1rem; padding: 2rem; margin: 2rem 0;
+    }
+    .mockup-form h3 { font-size: 1rem; font-weight: 600; color: var(--slate-900); margin-bottom: 1.5rem; }
+    .form-row { margin-bottom: 1rem; }
+    .form-row label { display: block; font-size: 0.85rem; font-weight: 600; color: var(--slate-700); margin-bottom: 0.3rem; }
+    .form-row input[type="text"], .form-row input[type="tel"] {
+      width: 100%; padding: 0.6rem 0.8rem; border: 1px solid var(--slate-200);
+      border-radius: 0.5rem; font-size: 0.9rem; color: var(--slate-400);
+      background: var(--white);
+    }
+    .checkbox-row {
+      display: flex; align-items: flex-start; gap: 0.75rem;
+      margin-top: 1.5rem; padding: 1rem; background: var(--white);
+      border: 1px solid var(--slate-200); border-radius: 0.5rem;
+    }
+    .checkbox-row input[type="checkbox"] {
+      margin-top: 0.2rem; width: 18px; height: 18px;
+      accent-color: var(--teal-600); flex-shrink: 0;
+    }
+    .checkbox-row p { font-size: 0.85rem; color: var(--slate-600); margin: 0; }
+    .checkbox-row strong { color: var(--slate-800); }
+
+    .keywords-table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+    .keywords-table th { text-align: left; font-size: 0.85rem; font-weight: 600; color: var(--slate-800); padding: 0.6rem 1rem; background: var(--slate-100); border-bottom: 1px solid var(--slate-200); }
+    .keywords-table td { padding: 0.6rem 1rem; font-size: 0.9rem; color: var(--slate-600); border-bottom: 1px solid var(--slate-100); }
+    .keywords-table code { background: var(--slate-100); padding: 0.15rem 0.5rem; border-radius: 0.25rem; font-size: 0.85rem; font-weight: 600; color: var(--teal-700); }
+
+    footer { border-top: 1px solid var(--slate-200); margin-top: 4rem; padding: 2rem; text-align: center; }
+    footer p { font-size: 0.8rem; color: var(--slate-400); }
+    @media (max-width: 768px) {
+      .page-header h1 { font-size: 1.8rem; }
+      .nav-links { gap: 1rem; font-size: 0.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="logo">ANX Home Healthcare and ANX Hospice Care/a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="privacy-policy.html">Privacy Policy</a></li>
+      <li><a href="terms-and-conditions.html">Terms</a></li>
+      <li><a href="sms-consent.html">SMS Consent</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-header">
+    <h1>SMS Consent &amp; Opt-In</h1>
+    <p>How we collect consent and how you can manage your SMS preferences</p>
+  </div>
+
+  <div class="content">
+
+    <h2>How We Collect Consent</h2>
+    <p>ANX Home Healthcare and ANX Hospice Care collects SMS consent during the patient intake and referral process. When a referral is created in our system, patients and family members provide their phone number and explicitly agree to receive text message notifications about their referral status.</p>
+
+    <div class="mockup-form">
+      <h3>Example: Referral Intake Form — SMS Consent Section</h3>
+      <div class="form-row">
+        <label>Patient Phone Number</label>
+        <input type="tel" value="(555) 123-4567" readonly>
+      </div>
+      <div class="checkbox-row">
+        <input type="checkbox" checked disabled>
+        <p><strong>I agree to receive text message notifications</strong> from ANX Home Healthcare and ANX Hospice Care regarding referral status updates, appointment reminders, and care coordination. Message frequency varies. Message and data rates may apply. Reply <strong>STOP</strong> to opt out at any time. Reply <strong>HELP</strong> for help. See our <a href="privacy-policy.html" style="color: var(--teal-600);">Privacy Policy</a> and <a href="terms-and-conditions.html" style="color: var(--teal-600);">Terms and Conditions</a>.</p>
+      </div>
+    </div>
+
+    <p>Healthcare partners (hospitals, physician offices, skilled nursing facilities) consent to SMS notifications when they register as referral partners and provide contact phone numbers through our partner onboarding process.</p>
+
+    <h2>What Messages You'll Receive</h2>
+    <p>Our SMS notifications include:</p>
+    <ul>
+      <li>Referral received confirmation</li>
+      <li>Insurance verification status updates</li>
+      <li>Clinical assessment scheduling and reminders</li>
+      <li>Admission and care plan notifications</li>
+      <li>Care coordination alerts for healthcare partners</li>
+    </ul>
+
+    <div class="consent-box">
+      <h3>Important Information</h3>
+      <p><strong>Message Frequency:</strong> Varies based on referral activity. Typically 2–10 messages per referral.</p>
+      <p><strong>Message &amp; Data Rates:</strong> Standard rates from your wireless carrier may apply.</p>
+      <p><strong>No Purchase Required:</strong> Consent is not a condition of any purchase.</p>
+      <p><strong>Your phone number will not be shared</strong> with third parties for marketing purposes.</p>
+    </div>
+
+    <h2>How to Opt Out</h2>
+    <p>You can stop receiving SMS messages at any time. Simply reply to any message with the keyword <strong>STOP</strong>. You will receive a one-time confirmation that you have been unsubscribed.</p>
+
+    <h2>How to Get Help</h2>
+    <p>Reply <strong>HELP</strong> to any message for assistance, or contact us directly:</p>
+    <p>Email: privacy@anxlife.com<br>Phone: (555) 010-0000</p>
+
+    <h2>SMS Keywords</h2>
+    <table class="keywords-table">
+      <thead>
+        <tr>
+          <th>Keyword</th>
+          <th>What Happens</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>STOP</code></td>
+          <td>Unsubscribe from all SMS notifications. You'll receive a confirmation.</td>
+        </tr>
+        <tr>
+          <td><code>HELP</code></td>
+          <td>Receive a help message with contact information and program details.</td>
+        </tr>
+        <tr>
+          <td><code>START</code></td>
+          <td>Re-subscribe to SMS notifications after opting out.</td>
+        </tr>
+        <tr>
+          <td><code>YES</code></td>
+          <td>Confirm opt-in to SMS notifications.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Re-Subscribing</h2>
+    <p>If you previously opted out and wish to receive messages again, text <strong>START</strong> to our number. You can also contact your care coordinator to re-enable SMS notifications on your referral.</p>
+
+    <h2>Compatible Carriers</h2>
+    <p>Our SMS program is compatible with all major U.S. wireless carriers, including AT&T, Verizon, T-Mobile, Sprint, U.S. Cellular, and others. If your carrier is not supported, you may not receive messages.</p>
+
+  </div>
+
+  <footer>
+    <p>&copy; 2026 ANX Home Healthcare and ANX Hospice Care. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
